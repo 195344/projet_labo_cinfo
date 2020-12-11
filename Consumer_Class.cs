@@ -1,75 +1,70 @@
-﻿namespace Consumer
-
-    //interface 
-
-public abstract class Consumer	
+﻿namespace Cons
 {
-	
 
 
-        private int _quantityEnergie;
-        
-        private string typeCons;
+    public class Consumer
+    {
+
+
+
+        private int quantityEnergie;
+
+
         private string localization;
 
 
-        public Consumer(int _quantityEnergie, string localization)
+        public Consumer(int quantityEnergie, string localization)
         {
-            this.typeCons = typeCons;
-            this.connexion = connexion;
+            this.quantityEnergie=quantityEnergie;
+            this.localization=localization;
+
+
         }
 
         public int QuantityEnergie
         {
-            get { return _quantityEnergie; }
-            set { _quantityEnergie = value; }
+            get { return quantityEnergie; }
+            set { quantityEnergie = value; }
         }
 
 
 
-}
+    }
 
-public class City : Consumer
-{
-
-    private string nameCity;
-     
-
-    public Ville (:,string nameCity)
+    public class City : Consumer
     {
-        this.nameCity = nameCity; 
+        private string nameCity;
+        public City(int quantityEnergie, string localization, string nameCity) : base(quantityEnergie, localization)
+        {
+            this.nameCity = nameCity;
+        }
+
 
     }
 
-
-}
-
-
-
-
-public class Entreprise : Consumer
-{
-
-    private string nameCompany;
-
-    public Entreprise(:, string nameCompany)
+    public class Entreprise : Consumer
     {
-        this.nameCompany = nameCompany;
+
+        private string nameCompany;
+
+        public Entreprise(int quantityEnergie, string localization, string nameCompany) : base(quantityEnergie, localization)
+        {
+            this.nameCompany = nameCompany;
+
+        }
+
 
     }
 
-
-}
-
-public class Dissipateur : Consumer
-{
-
-
-    public Dissipateur()
+    public class Dissipateur : Consumer
     {
-        
+
+        public Dissipateur(int quantityEnergie, string localization) : base(quantityEnergie, localization)
+        {
+
+        }
+
+
     }
 
-
 }
-
