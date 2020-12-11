@@ -31,4 +31,28 @@ namespace Prod
             get {return emission;}
         }
     }
+
+    public class Centrale_Nucleaire : Producteur{
+        private double production;
+        private double cout;
+        private double emission = 0;
+
+        public Centrale_Nucleaire(double production, double cout){
+            this.production = production;
+            this.cout = cout;
+        }
+
+        public double Production{
+            get {return production;}
+            set {production = value;}
+        } 
+
+        public double Cout{
+            get {return cout;}
+        } 
+
+        public double Emission{
+            get {return emission;}
+        }
+    }
 }
