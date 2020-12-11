@@ -9,6 +9,7 @@ namespace Projet
         {
             Producteur myprod = new Centrale_Gaz(1,1,1);
             Console.WriteLine(myprod.Production);
+            Console.WriteLine(myprod.Production);
         }
     }
 }
