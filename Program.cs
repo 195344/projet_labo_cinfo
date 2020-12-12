@@ -1,4 +1,5 @@
 ﻿using System;
+using Simulation;
 using Prod;
 using Cons;
 
@@ -8,8 +9,12 @@ namespace projet_labo_cinfo
     {
         static void Main(string[] args)
         {   
-            Producteur myprod = new Centrale_Nucleaire(1,1);
+            MarketSimulation france = new MarketSimulation();
+            Console.WriteLine(france.UraniumPrice());
+            //NuclearPlant myprod = new NuclearPlant(3,2);
+            GasPlant myprod = new GasPlant(3,2,1);
             Console.WriteLine(myprod.Production);
+            Console.WriteLine(myprod.Cost);
             Console.WriteLine(myprod.Emission);
 
             City paris= new City(12,"11eme arondissement","Paris");
