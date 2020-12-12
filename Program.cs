@@ -10,12 +10,13 @@ namespace projet_labo_cinfo
         static void Main(string[] args)
         {   
             MarketSimulation france = new MarketSimulation();
-            Console.WriteLine(france.UraniumPrice());
-            //NuclearPlant myprod = new NuclearPlant(3,2);
-            GasPlant myprod = new GasPlant(3,2,1);
-            Console.WriteLine(myprod.Production);
-            Console.WriteLine(myprod.Cost);
-            Console.WriteLine(myprod.Emission);
+            WeatherSimulation belgique = new WeatherSimulation(0,0);
+            //NuclearPlant myprod = new NuclearPlant(1000,0,france);
+            SolarPlant myprod = new SolarPlant(0,1,belgique);
+            //GasPlant myprod = new GasPlant(3,2,1);
+            Console.WriteLine(myprod.getProduction());
+            Console.WriteLine(myprod.getCost());
+            Console.WriteLine(myprod.getEmission());
 
             City paris= new City(12,"11eme arondissement","Paris");
             Dissipateur dis1 = new Dissipateur (14,"Paris");
