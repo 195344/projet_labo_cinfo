@@ -30,11 +30,17 @@ namespace Prod
     //         get { return emission; }
     //     }
     // }
-    interface Producer
+    // interface Producer
+    // {
+    //     public double getProduction();
+    //     public double getCost();
+    //     public double getEmission();
+    // }
+    public abstract class Producer
     {
-        public double getProduction();
-        public double getCost();
-        public double getEmission();
+        public abstract double getProduction();
+        public abstract double getCost();
+        public abstract double getEmission();
     }
 
     public class GasPlant : Producer
@@ -49,7 +55,7 @@ namespace Prod
             this.marketsimulation=marketsimulation;
         }
 
-        public double getProduction()
+        public override double getProduction()
         {
             return production;
         }
@@ -59,13 +65,13 @@ namespace Prod
             production=value;
         }
         
-        public double getCost()
+        public override double getCost()
         {
             //add code to compute prduction cost
             return marketsimulation.GasPrice()/1000;
         }
         
-        public double getEmission()
+        public override double getEmission()
         {
             return emission;
         }
@@ -86,7 +92,7 @@ namespace Prod
             this.marketsimulation=marketsimulation;
         }
 
-        public double getProduction()
+        public override double getProduction()
         {
             return production_real;
         }
@@ -101,13 +107,13 @@ namespace Prod
             production_real=production;
         }
         
-        public double getCost()
+        public override double getCost()
         {
             //add code to compute prduction cost
             return marketsimulation.UraniumPrice()/1000;
         }
         
-        public double getEmission()
+        public override double getEmission()
         {
             return emission;
         }
@@ -125,18 +131,18 @@ namespace Prod
             this.weathersimulation=weathersimulation;
         }
 
-        public double getProduction()
+        public override double getProduction()
         {
             //add code to compute production
             return weathersimulation.Wind()*10;
         }
         
-        public double getCost()
+        public override double getCost()
         {
             return cost;
         }
         
-        public double getEmission()
+        public override double getEmission()
         {
             return emission;
         }
@@ -155,18 +161,18 @@ namespace Prod
             this.weathersimulation=weathersimulation;
         }
 
-        public double getProduction()
+        public override double getProduction()
         {
             //add code to compute production
             return weathersimulation.Sunshine()*10;
         }
         
-        public double getCost()
+        public override double getCost()
         {
             return cost;
         }
         
-        public double getEmission()
+        public override double getEmission()
         {
             return emission;
         }
@@ -185,7 +191,7 @@ namespace Prod
             this.marketsimulation=marketsimulation;
         }
 
-        public double getProduction()
+        public override double getProduction()
         {
             //add code to compute production
             return production;
@@ -196,12 +202,12 @@ namespace Prod
             production=value;
         }
         
-        public double getCost()
+        public override double getCost()
         {
             return marketsimulation.ElectricityBuyPrice();
         }
         
-        public double getEmission()
+        public override double getEmission()
         {
             return emission;
         }
