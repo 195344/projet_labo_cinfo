@@ -29,3 +29,19 @@ C:/Users/matth/Documents/GitHub/projet_labo_cinfo/obj/Debug/net5.0/projet_labo_c
 C:/Users/matth/Documents/GitHub/projet_labo_cinfo/obj/Debug/net5.0/ref/projet_labo_cinfo.dll
 C:/Users/matth/Documents/GitHub/projet_labo_cinfo/obj/Debug/net5.0/projet_labo_cinfo.pdb
 C:/Users/matth/Documents/GitHub/projet_labo_cinfo/obj/Debug/net5.0/projet_labo_cinfo.genruntimeconfig.cache
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\bin\Debug\net5.0\projet_labo_cinfo.exe
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\bin\Debug\net5.0\projet_labo_cinfo.deps.json
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\bin\Debug\net5.0\projet_labo_cinfo.runtimeconfig.json
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\bin\Debug\net5.0\projet_labo_cinfo.runtimeconfig.dev.json
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\bin\Debug\net5.0\projet_labo_cinfo.dll
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\bin\Debug\net5.0\ref\projet_labo_cinfo.dll
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\bin\Debug\net5.0\projet_labo_cinfo.pdb
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\obj\Debug\net5.0\projet_labo_cinfo.csprojAssemblyReference.cache
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\obj\Debug\net5.0\projet_labo_cinfo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\obj\Debug\net5.0\projet_labo_cinfo.AssemblyInfoInputs.cache
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\obj\Debug\net5.0\projet_labo_cinfo.AssemblyInfo.cs
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\obj\Debug\net5.0\projet_labo_cinfo.csproj.CoreCompileInputs.cache
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\obj\Debug\net5.0\projet_labo_cinfo.dll
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\obj\Debug\net5.0\ref\projet_labo_cinfo.dll
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\obj\Debug\net5.0\projet_labo_cinfo.pdb
+C:\Users\matth\OneDrive - ECAM\Documents\GitHub\projet_labo_cinfo\obj\Debug\net5.0\projet_labo_cinfo.genruntimeconfig.cache
