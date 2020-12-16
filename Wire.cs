@@ -2,6 +2,7 @@
 using Prod;
 using Cons;
 using System.Collections.Generic;
+using System;
 
 
 namespace WireNode{
@@ -12,18 +13,16 @@ namespace WireNode{
     {
         protected List < Wire > connetions; 
         protected double costByEnegieQtt;
+       
 
-        public void AddConnection(Wire wire)
-        {
-            connetions.Add(wire);
-        }
+        public abstract void AddConnection(Wire wire);
+        
 
         public List<Wire> GetConnetions ()
         {
             return connetions;
         }
-        public abstract double GetCost() ;
-      
+        public abstract double GetCost() ;    
 
 
     }
@@ -41,15 +40,38 @@ namespace WireNode{
             costByEnegieQtt=powerSupply.GetCost();
 
         }
+        public override void AddConnection (Wire wire)
+        {
+            connetions.Add(wire);
+        }
         
         public override double GetCost()
         {
             return costByEnegieQtt;
         }
+        // here we set the current distribution in each branch of the distribution node wire
+        public void SetEnergyDistrib( double[] distribProportions )
+        { 
+            //Console.WriteLine("test de connexion capacity "+connetions.Count);
+            //Console.WriteLine("Energie d'arrivé "+connetions[0].GetActivCurrent());
+
+            for(int i=1; i<connetions.Count;i++)
+            {                
+                connetions[i].SetActivCurrent(distribProportions[i-1]*connetions[0].GetActivCurrent());
+                
+            }
+            
+        }
+
+        public double GetActivCurrent(){
+            return connetions[0].GetActivCurrent();
+        }
+
 
     }
     public class ConcentNode :Node
     {
+        private double energyRecived;
         public ConcentNode( )
         {
             connetions = new List<Wire>();
@@ -69,8 +91,25 @@ namespace WireNode{
             }
             return costByEnegieQtt;
         }
+        public override void AddConnection(Wire wire)
+        {
+            connetions.Add(wire);
+            energyRecived += wire.GetActivCurrent();
+            connetions[0].SetActivCurrent(energyRecived);
+        }
 
-        
+
+        // a suprimer 
+        public void actualiseCurrent()
+        {
+            // Summ of all energy in each wire
+            for(int i=1;i<=connetions.Count;i++ )
+            {
+                energyRecived += connetions[i].GetActivCurrent();
+            }
+            connetions[0].SetActivCurrent(energyRecived);
+        }
+ 
         
     }
 
@@ -80,39 +119,44 @@ namespace WireNode{
     public class Wire
     {
 
-        private int maxCurrent;
-        private int activCurrent;
+        private double maxCurrent;
+        private double activCurrent;
         private double cost ;
+
         
         private object a;
         private object b;
 
 
-        public Wire ( Producer a,Consumer b,int maxCurrent)
+        public Wire ( Producer a,Consumer b,double maxCurrent)
         {
             this.a = a;
             this.b = b;
             this.maxCurrent = maxCurrent;
+            this.activCurrent=a.getProduction();
             cost=a.getCost();
 
         }
-        public Wire(Consumer a , Producer b,int maxCurrent)
+        public Wire(Consumer a , Producer b,double maxCurrent)
         {
             this.a = a;
             this.b = b;
             this.maxCurrent = maxCurrent;
+            this.activCurrent=b.getProduction();
+            
             cost=b.getCost();
 
         }
-        public Wire(Node a , Consumer b,int maxCurrent)
+        public Wire(Node a , Consumer b,double maxCurrent)
         {
             this.a = a;
             this.b = b;
             this.maxCurrent = maxCurrent;
+            
             this.cost=a.GetCost();
 
         }
-        public Wire( Consumer a, Node b ,int maxCurrent)
+        public Wire( Consumer a, Node b ,double maxCurrent)
         {
             this.a = a;
             this.b = b;
@@ -120,7 +164,7 @@ namespace WireNode{
             this.cost=b.GetCost();
 
         }
-        public Wire( Node a, Node b ,int maxCurrent )
+        public Wire( Node a, Node b ,double maxCurrent )
         {
             this.a = a;
             this.b = b;
@@ -136,35 +180,35 @@ namespace WireNode{
             }
 
         }
-       public Wire(Producer a, DistribNode b,int maxCurrent)
+       public Wire(Producer a, DistribNode b,double maxCurrent)
        {
            this.a = a;
            this.b = b;
            this.maxCurrent = maxCurrent;
+           this.activCurrent=a.getProduction();
            cost=a.getCost();
 
        }
-       public Wire(DistribNode a,Producer b ,int maxCurrent)
+       public Wire(DistribNode a,Producer b ,double maxCurrent)
        {
            this.a=a;
            this.b=b;
            this.maxCurrent = maxCurrent;
            cost=b.getCost();
+           this.activCurrent=b.getProduction();
        }
 
 
 
-       public int GetActivCurrent()
+       public double GetActivCurrent()
        {
            return activCurrent ;
        }
-
-       public void SetActivCurrent(int activCurrent)
+       public void SetActivCurrent(double activCurrent)
        {
             this.activCurrent=activCurrent;
        }
-
-       public int GetMaxCurrent()
+       public double GetMaxCurrent()
        {
            return maxCurrent;
        }
